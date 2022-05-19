@@ -148,7 +148,7 @@ void keyPressed(){
   probeXAng=min(probeXAng, PI);
   probeYAng=max(probeYAng, 0);
   probeYAng=min(probeYAng, PI);
-  println(probeYAng);
+  //println(probeYAng);
 }
 
 //Render engine
@@ -217,24 +217,45 @@ void drawScan2(){//no angles
    }
 }
 
+//main function - does all the behind the scenes work 
 void drawScan3(){//no angles
   int gridSize = 400;
    int iterCount = 100;
    float range = ZOOM;
    for(int i=0; i < iterCount; i++){
      for(int j=0; j < iterCount; j++){
+       //all of the math that creates the plane. 
+       //Goes through and checks if the point is inside or outside the scanning range. 
        float I = (i*range/iterCount);
        float J = (j*range/iterCount);
        float isX = probeX+I*cos(probeXAng) + J*cos(probeYAng);
        float isY = probeY + I*sin(probeXAng);
        float isZ = probeZ + J*sin(probeYAng);
        noFill();
+       //if the point is, it is coloured to appear on the screen. Otherwise it isn't. 
        stroke(255);
         if(isBaby(isX, isY, isZ)){
           fill(0);
           noStroke();
         }
+        //draws the circle 
         circle(j*gridSize/iterCount, i*gridSize/iterCount, gridSize/iterCount);
      }
    }
+}
+
+class Patient {
+  String patientName;
+  char gender; //M (male), F (female) or I (intersex). 
+  Baby fetus;
+}
+
+class Baby { 
+  int days, weeks, months;
+  /* NOTES BEGIN HERE: 
+  * Body parts: head, torso, legs, arms, hands, feet, neck
+  * Need to be able to give the exact location
+  * Torso as centre/origin point. All other parts measured relative to that point. 
+  * Torso origin point will need x, y, z plus angle measurements. 
+  */
 }
