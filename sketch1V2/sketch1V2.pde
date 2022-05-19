@@ -331,3 +331,51 @@ NOTES
    */
 
   //will scan and output to canvas
+  
+  public static boolean[][] testEllipse(double Z){
+        final int resolution = 10; //number of pixels checks,
+        final int zValue = Z;
+        final double eX = 0;
+        final double eY = 0;
+        final double eZ = 0;
+        final double eA1 = 0;
+        final double eA2 = 0;
+        final double eWidth = 1;
+        final double eHeight = 2;
+        final double eDepth = 1;
+
+        final boolean[][] output = new boolean[resolution][resolution];
+        for (int i = 0; i < resolution ; i++) { //check X
+            for (int j = 0; j < resolution; j++) { // check Y
+                double checkX = i;
+                double checkY = j;
+                double checkZ = zValue;
+                output[i][j] = inEllipse(checkX, checkY, checkZ, eX, eY, eZ, eDepth, eWidth, eHeight, eA1, eA2);
+            }
+        }
+    }
+
+class Test () {
+public static boolean[][] testEllipse(double Z){
+        final int resolution = 10; //number of pixels checks,
+        final int zValue = Z;
+        final double eX = 0;
+        final double eY = 0;
+        final double eZ = 0;
+        final double eA1 = 0;
+        final double eA2 = 0;
+        final double eWidth = 1;
+        final double eHeight = 2;
+        final double eDepth = 1;
+
+        final boolean[][] output = new boolean[resolution][resolution];
+        for (int i = 0; i < resolution ; i++) { //check X
+            for (int j = 0; j < resolution; j++) { // check Y
+                double checkX = i;
+                double checkY = j;
+                double checkZ = zValue;
+                output[i][j] = inEllipse(checkX, checkY, checkZ, eX, eY, eZ, eDepth, eWidth, eHeight, eA1, eA2);
+            }
+        }
+    }
+}
