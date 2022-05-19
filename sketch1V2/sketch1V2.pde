@@ -378,4 +378,19 @@ public static boolean[][] testEllipse(double Z){
             }
         }
     }
+    
+    void printToCanvas () {
+      boolean [][] values = testEllipse (0);
+      for (int i = 0; i < values.length; i++) {
+        for (int j = 0; j < values[i].length; j++) {
+          if (values[i][j]) {
+            fill (0);
+          } else {
+            fill (255);
+          }
+          circle (i*5, j*5, 5);
+        }
+      }
+      
+    }
 }
