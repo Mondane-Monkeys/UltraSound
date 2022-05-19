@@ -1,10 +1,14 @@
+int frame = 0;
 void setup() {
   size(700, 600);
 }
 
 void draw() {
   background(190);
-  printToCanvas();
+  println(frame%100);
+  for(int i = 0; i<4; i++) {
+    printToCanvas((frame++%110));
+  }
 }
 
 //point is center
@@ -21,16 +25,16 @@ boolean inEllipse(double inputX, double inputY, double inputZ, double x, double 
 
 
 boolean[][] testEllipse(double Z) {
-  final int resolution = 10; //number of pixels checks,
+  final int resolution = 100; //number of pixels checks,
   final double zValue = Z;
-  final double eX = 0;
-  final double eY = 0;
-  final double eZ = 0;
+  final double eX = 40;
+  final double eY = 50;
+  final double eZ = 60;
   final double eA1 = 0;
   final double eA2 = 0;
-  final double eWidth = 1;
-  final double eHeight = 2;
-  final double eDepth = 1;
+  final double eWidth = 40;
+  final double eHeight = 30;
+  final double eDepth = 50;
 
   final boolean[][] output = new boolean[resolution][resolution];
   for (int i = 0; i < resolution; i++) { //check X
@@ -45,8 +49,8 @@ boolean[][] testEllipse(double Z) {
 }
 
 
-void printToCanvas () {
-  boolean [][] values = testEllipse (0);
+void printToCanvas (double z) {
+  boolean [][] values = testEllipse (z);
   for (int i = 0; i < values.length; i++) {
     for (int j = 0; j < values[i].length; j++) {
       if (values[i][j]) {
@@ -54,7 +58,7 @@ void printToCanvas () {
       } else {
         fill (255);
       }
-      circle (i*5, j*5, 5);
+      circle (20+i*5, 20+j*5, 5);
     }
   }
 }
