@@ -6,6 +6,8 @@ void setup() {
 void draw() {
   background(190);
   println(frame%100);
+  
+  //scan across the Z dimension
   for(int i = 0; i<4; i++) {
     printToCanvas((frame++%110));
   }
