@@ -253,9 +253,7 @@ abstract class Shape {
     dims = dim;
   }
 
-  public boolean isIn () {
-    return false;
-  }
+  public abstract boolean isIn (Point input);
 }
 
 
