@@ -1,43 +1,43 @@
 /*
 Main:
-  canvas setup
-  controls handler (void keypressed())
-  
-Patient:
-  game data <- info shown explicity to user
-  
-Baby:
-  handles all isBaby(Point) calls
-  holds baby dimension/position data
-  relative X <- left to right
-  relative Y <- head to toe
-  relative Z <- front to back
-  
-Point:
-  contains X, Y, Z coordinates. 
-  Used to pass data more elegantly
-  
-Dimension
-  Defines the size and dimensions of a shape
-  Holds X, Y, Z, width, height, depth, angle1, angle 2
-  Width <- stretches along X axis
-  Height <- stretches along Y axis
-  Depth <- stretches along Z axis
-  angle1 <- rotates around X
-  angle2 <- rotates around Y
-  
-Shape
-  abstract class
-  includes isIn() method
-  includes Parent shape
-  includes dimensions (relative to parent point <- simply add parent (X,Y,Z,A1,A2)
-  
-Ellipse <- (technically called ellipsoid)
-  implents Shape
-
-Rectangle
-  implements Shape
-*/
+ canvas setup
+ controls handler (void keypressed())
+ 
+ Patient:
+ game data <- info shown explicity to user
+ 
+ Baby:
+ handles all isBaby(Point) calls
+ holds baby dimension/position data
+ relative X <- left to right
+ relative Y <- head to toe
+ relative Z <- front to back
+ 
+ Point:
+ contains X, Y, Z coordinates. 
+ Used to pass data more elegantly
+ 
+ Dimension
+ Defines the size and dimensions of a shape
+ Holds X, Y, Z, width, height, depth, angle1, angle 2
+ Width <- stretches along X axis
+ Height <- stretches along Y axis
+ Depth <- stretches along Z axis
+ angle1 <- rotates around X
+ angle2 <- rotates around Y
+ 
+ Shape
+ abstract class
+ includes isIn() method
+ includes Parent shape
+ includes dimensions (relative to parent point <- simply add parent (X,Y,Z,A1,A2)
+ 
+ Ellipse <- (technically called ellipsoid)
+ implents Shape
+ 
+ Rectangle
+ implements Shape
+ */
 
 
 
@@ -48,9 +48,9 @@ void setup() {
 
 void draw() {
   background(190);
-  
+
   //scan across the Z dimension
-  for(int i = 0; i<4; i++) {
+  for (int i = 0; i<4; i++) {
     printToCanvas((frame++%110));
   }
 }
@@ -181,22 +181,94 @@ NOTES
 
 //will scan and output to canvas
 
-//TODO!!
-class Point{
+class Point {
+  double x, y, z;
+
+  public Point (double inputX, double inputY, double inputZ) 
+  {
+    x = inputX;
+    y = inputY;
+    z = inputZ;
+  }
+  public double getX() {
+    return x;
+  }
+  public double getY() {
+    return y;
+  }
+  public double getZ() {
+    return z;
+  }
 }
 
-//TODO!!
-class Dimension{
+class Dimension {
+  Point point;
+  double width, height, depth;
+  double angle1, angle2;
+
+  public Dimension (Point pt, double w, double h, double d, double ang1, double ang2) {
+    point = pt;
+    width = w;
+    height = h;
+    depth = d;
+    angle1 = ang1;
+    angle2 = ang2;
+  }
+
+  public double getX() {
+    return point.getX();
+  }
+  public double getY() {
+    return point.getZ();
+  }
+  public double getZ() {
+    return point.getZ();
+  }
+
+  public double getWidth() {
+    return width;
+  }
+
+  public double getHeight() {
+    return height;
+  }
+  public double getDepth() {
+    return depth;
+  }
 }
 
-//TODO!!
-abstract class Shape{
+abstract class Shape {
+  Shape parentShape;
+  protected Dimension dims;
+
+  public Shape(Shape parent, Dimension dim) {
+    parentShape = parent;
+    dims = dim;
+  }
+
+  public boolean isIn () {
+    return false;
+  }
 }
 
-//TODO!!
-class Ellipse extends Shape{
+
+class Ellipse extends Shape {
+  public Ellipse(Shape parent, Dimension dim) {
+    super(parent, dim);
+  }
+  public boolean isIn (Point input) {
+    double pointX = super.dims.getX() - input.getX();
+    double pointY = super.dims.getY() - input.getY();
+    double pointZ = super.dims.getZ() - input.getZ();
+    if (((pointX*pointX)/(super.dims.getHeight()*super.dims.getHeight()) + (pointY*pointY)/(super.dims.getWidth()*super.dims.getWidth()) + (pointZ*pointZ)/(super.dims.getLength()*super.dims.getLength())) < 1) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
+
 //TODO!!
-class Rectangle extends Shape{
-}
+/* class Rectangle extends Shape {
+} */
