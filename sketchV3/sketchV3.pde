@@ -49,10 +49,10 @@ void setup() {
 void draw() {
   background(190);
 
-  //scan across the Z dimension
-  Shape shape = new Ellipse (Shape);
+  Dimension dim = new Dimension (new Point (40, 50, 60), 0, 0, 40, 30, 50);
+  Shape shape = new Ellipse (dim);
   for (int i = 0; i<4; i++) {
-    printToCanvas((frame++%110), Shape);
+    printToCanvas((frame++%110), shape);
   }
 }
 
