@@ -50,8 +50,9 @@ void draw() {
   background(190);
 
   //scan across the Z dimension
+  Shape shape = new Ellipse (Shape);
   for (int i = 0; i<4; i++) {
-    printToCanvas((frame++%110));
+    printToCanvas((frame++%110), Shape);
   }
 }
 
@@ -68,7 +69,7 @@ boolean inEllipse(double inputX, double inputY, double inputZ, double x, double 
 }
 
 
-boolean[][] testEllipse(double Z) {
+boolean[][] testEllipse(double Z, Shape shape) {
   final int resolution = 100; //number of pixels checks,
   final double zValue = Z;
   final double eX = 40;
@@ -86,15 +87,16 @@ boolean[][] testEllipse(double Z) {
       double checkX = i;
       double checkY = j;
       double checkZ = zValue;
-      output[i][j] = inEllipse(checkX, checkY, checkZ, eX, eY, eZ, eDepth, eWidth, eHeight, eA1, eA2);
+      Point point = new Point(checkX, checkY, checkZ);
+      output[i][j] = shape.isIn(point);
     }
   }
   return output;
 }
 
 
-void printToCanvas (double z) {
-  boolean [][] values = testEllipse (z);
+void printToCanvas (double z, Shape shape) {
+  boolean [][] values = testEllipse (z, shape);
   for (int i = 0; i < values.length; i++) {
     for (int j = 0; j < values[i].length; j++) {
       if (values[i][j]) {
@@ -245,6 +247,11 @@ abstract class Shape {
     parentShape = parent;
     dims = dim;
   }
+  
+  public Shape (Dimension dim) {
+    parentShape = null;
+    dims = dim;
+  }
 
   public boolean isIn () {
     return false;
@@ -256,6 +263,11 @@ class Ellipse extends Shape {
   public Ellipse(Shape parent, Dimension dim) {
     super(parent, dim);
   }
+  
+  public Ellipse (Dimension dim) {
+    super (dim);
+  }
+  
   public boolean isIn (Point input) {
     double pointX = super.dims.getX() - input.getX();
     double pointY = super.dims.getY() - input.getY();
@@ -271,4 +283,4 @@ class Ellipse extends Shape {
 
 //TODO!!
 /* class Rectangle extends Shape {
-} */
+ } */
