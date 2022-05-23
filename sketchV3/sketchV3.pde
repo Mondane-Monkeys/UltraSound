@@ -1,3 +1,46 @@
+/*
+Main:
+  canvas setup
+  controls handler (void keypressed())
+  
+Patient:
+  game data <- info shown explicity to user
+  
+Baby:
+  handles all isBaby(Point) calls
+  holds baby dimension/position data
+  relative X <- left to right
+  relative Y <- head to toe
+  relative Z <- front to back
+  
+Point:
+  contains X, Y, Z coordinates. 
+  Used to pass data more elegantly
+  
+Dimension
+  Defines the size and dimensions of a shape
+  Holds X, Y, Z, width, height, depth, angle1, angle 2
+  Width <- stretches along X axis
+  Height <- stretches along Y axis
+  Depth <- stretches along Z axis
+  angle1 <- rotates around X
+  angle2 <- rotates around Y
+  
+Shape
+  abstract class
+  includes isIn() method
+  includes Parent shape
+  includes dimensions (relative to parent point <- simply add parent (X,Y,Z,A1,A2)
+  
+Ellipse <- (technically called ellipsoid)
+  implents Shape
+
+Rectangle
+  implements Shape
+*/
+
+
+
 int frame = 0;
 void setup() {
   size(700, 600);
@@ -5,7 +48,6 @@ void setup() {
 
 void draw() {
   background(190);
-  println(frame%100);
   
   //scan across the Z dimension
   for(int i = 0; i<4; i++) {
@@ -138,3 +180,23 @@ NOTES
  */
 
 //will scan and output to canvas
+
+//TODO!!
+class Point{
+}
+
+//TODO!!
+class Dimension{
+}
+
+//TODO!!
+abstract class Shape{
+}
+
+//TODO!!
+class Ellipse extends Shape{
+}
+
+//TODO!!
+class Rectangle extends Shape{
+}
