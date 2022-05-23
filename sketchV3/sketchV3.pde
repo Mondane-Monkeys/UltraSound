@@ -260,7 +260,7 @@ class Ellipse extends Shape {
     double pointX = super.dims.getX() - input.getX();
     double pointY = super.dims.getY() - input.getY();
     double pointZ = super.dims.getZ() - input.getZ();
-    if (((pointX*pointX)/(super.dims.getHeight()*super.dims.getHeight()) + (pointY*pointY)/(super.dims.getWidth()*super.dims.getWidth()) + (pointZ*pointZ)/(super.dims.getLength()*super.dims.getLength())) < 1) {
+    if (((pointX*pointX)/(super.dims.getHeight()*super.dims.getHeight()) + (pointY*pointY)/(super.dims.getWidth()*super.dims.getWidth()) + (pointZ*pointZ)/(super.dims.getDepth()*super.dims.getDepth())) < 1) {
       return true;
     } else {
       return false;
