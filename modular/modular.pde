@@ -42,6 +42,7 @@ void drawUI(){
     }
   
   //draw a right hand box with some info on the baby and mother and measurements
+  drawInfoBox(); 
 
   
 }
@@ -61,6 +62,8 @@ void printToCanvas (double z, Shape shape) {
 }
 
 void drawInfoBox () {
+  stroke (0); 
+  fill (200); 
   rect (600, 20, 180, 260); 
 }
 
