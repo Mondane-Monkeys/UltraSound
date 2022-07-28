@@ -1,6 +1,6 @@
 public class Engine{
 
-  color[][] render(Family, double saggital, coronal){//returns a 2d array of a scan at the given saggital/coronal coordinates;
+  public static color[][] render(Family family, double saggital, double coronal){//returns a 2d array of a scan at the given saggital/coronal coordinates;
   int SIZE = 100;
     color[][] scan = new color[SIZE][SIZE];
     for(int i=0; i < SIZE; i++){
@@ -10,5 +10,30 @@ public class Engine{
     }
     
     return scan;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//general shapes -> 
+
+
+class color{
+  public color(int in) {
+    super();
   }
 }
