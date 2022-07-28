@@ -29,6 +29,25 @@ void draw(){
 ////////////////////////////
 void drawUI(){
   //TODO
+  
+  //draw the scanning object maybe? 
+  
+  //call the engine to draw the fetus, based on the calculations in family 
+  
+}
+
+void printToCanvas (double z, Shape shape) {
+  boolean [][] values = testEllipse (z, shape);
+  for (int i = 0; i < values.length; i++) {
+    for (int j = 0; j < values[i].length; j++) {
+      if (values[i][j]) {
+        fill (0);
+      } else {
+        fill (255);
+      }
+      circle (20+i*5, 20+j*5, 5);
+    }
+  }
 }
 
 
