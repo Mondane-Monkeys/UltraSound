@@ -13,4 +13,8 @@ public class Family{
     size = 15;
     medicalHistory = null;
   }
+  
+  public int generateAge () {
+    return int (random (4, 43));
+  }
 }
