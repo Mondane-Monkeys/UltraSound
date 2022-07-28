@@ -37,6 +37,9 @@ class Ellipse extends Shape {
     }
 }
 
+////////////////////////
+//////////BODY//////////
+///////////////////////
 class Body extends Ellipse{
     Shoulder leftShoulder;
     Shoulder rightShoulder;
@@ -45,8 +48,8 @@ class Body extends Ellipse{
         super(new Dimension(new Point(0, 0, 0), family.size, family.size/2, family.size/2, 0, 0));
         Dimension leftShoulderDim = new Dimension(new Point(0, family.size/2, 0), family.size/10, family.size/10, family.size/10, 0, 0);
         Dimension rightShoulderDim = new Dimension(new Point(0, -family.size/2, 0), family.size/10, family.size/10, family.size/10, 0, 0);
-        leftShoulder = new Shoulder(family, leftShoulderDim, this);//TODO give dimensions!
-        rightShoulder = new Shoulder(family, rightShoulderDim, this);//TODO give dimensions!
+        leftShoulder = new Shoulder(family, leftShoulderDim, this);
+        rightShoulder = new Shoulder(family, rightShoulderDim, this);
     }
     
     @Override
@@ -55,6 +58,9 @@ class Body extends Ellipse{
     }
 }
 
+////////////////////////
+//////////ARMS//////////
+///////////////////////
 class Shoulder extends Ellipse{
     Shape parent;
     Bicep bicep;
@@ -62,8 +68,8 @@ class Shoulder extends Ellipse{
     public Shoulder(Family family, Dimension dim, Shape inParent) {
         super(dim);
         parent = inParent;
-        Dimension childDim = new Dimension(dim.point, family.size/10, family.size/2, family.size/10, ang1, ang2);
-        bicep = new Bicep(family, childDim, this);//TODO give dimensions!
+        Dimension childDim = new Dimension(dim.point, family.size/10, family.size/2, family.size/10, dim.angle1, dim.angle2);
+        bicep = new Bicep(family, childDim, this);
     }
     
     @Override
@@ -79,7 +85,9 @@ class Bicep extends Ellipse{
     public Bicep(Family family, Dimension dim, Shape inParent) {
         super(dim);
         parent = inParent;
-        elbow = new Elbow(family, null, this);//TODO give dimensions!
+        Point childPoint = new Point(dim.point.x, dim.point.y + family.size/2, dim.point.z);
+        Dimension childDim = new Dimension(childPoint, family.size/10, family.size/10, family.size/10, dim.angle1, dim.angle2);
+        elbow = new Elbow(family, childDim, this);
     }
     
     @Override
@@ -96,7 +104,9 @@ class Elbow extends Ellipse{
     public Elbow(Family family, Dimension dim, Shape inParent) {
         super(dim);
         parent = inParent;
-        forearm = new Forearm(family, null, this);//TODO give dimensions!
+        
+        Dimension childDim = new Dimension(dim.point, family.size/10, family.size/2, family.size/10, dim.angle1, dim.angle2);
+        forearm = new Forearm(family, childDim, this);
     }
     
     @Override
@@ -112,7 +122,9 @@ class Forearm extends Ellipse{
     public Forearm(Family family, Dimension dim, Shape inParent) {
         super(dim);
         parent = inParent;
-        hand = new Hand(family, null, this);//TODO give dimensions!
+        Point childPoint = new Point(dim.point.x, dim.point.y + family.size/2, dim.point.z);
+        Dimension childDim = new Dimension(childPoint, family.size/10, family.size/10, family.size/10, dim.angle1, dim.angle2);
+        hand = new Hand(family, childDim, this);
     }
     
     @Override
