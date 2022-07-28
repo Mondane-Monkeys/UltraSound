@@ -4,6 +4,7 @@ public class Family{
   //baby variables
   int age;
   double size;
+  final double [] sizes = new double [37]; 
   
   //family variables
   String medicalHistory;
@@ -19,12 +20,11 @@ public class Family{
   }
   
   public int generateSize() {
-    if (age == 8) {
-      return 1.6;
-    } else if (age == 9) {
-      return 2.3;
-    } else if (age ) {
-      
-    }
+    return 0; 
   }
+  
+  public void fillArray () {
+    
+  }
+  
 }
