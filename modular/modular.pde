@@ -30,9 +30,12 @@ void draw(){
 void drawUI(){
   //TODO
   
-  //draw the scanning object maybe? 
+  //draw the scanning table and object maybe? 
   
   //call the engine to draw the fetus, based on the calculations in family 
+  
+  //draw a right hand box with some info on the baby and mother and measurements 
+
   
 }
 
