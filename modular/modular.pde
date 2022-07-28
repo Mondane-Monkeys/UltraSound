@@ -70,6 +70,8 @@ void fillInfoBox() {
   //to fill box with the information
   //name, age, weight of mother on top half 
   //age, gender (if known), and measurements of the baby 
+  textSize (20); 
+  
 }
 
 
