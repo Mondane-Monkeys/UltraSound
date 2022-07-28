@@ -33,7 +33,13 @@ void drawUI(){
   //draw the scanning table and object maybe? 
   
   //call the engine to draw the fetus, based on the calculations in family 
-  Engine.render (newExam, 0.8, 0.5);
+  color[][] scan = Engine.render (newExam, 0.0, 0.0);
+    for (int i = 0; i < sizes.length; i++) {
+      for (int j = 0; j < sizes.length; j++) {
+        fill(scan[i][j]);
+        circle(i, j, 3);
+      }
+    }
   
   //draw a right hand box with some info on the baby and mother and measurements 
 
