@@ -15,7 +15,7 @@
 ///////main functions///////
 ////////////////////////////
 void setup(){
-
+  Family newExam = new Family ();
 }
 
 void draw(){
@@ -33,6 +33,7 @@ void drawUI(){
   //draw the scanning table and object maybe? 
   
   //call the engine to draw the fetus, based on the calculations in family 
+  Engine.render (newExam, 0.8, 0.5);
   
   //draw a right hand box with some info on the baby and mother and measurements 
 
