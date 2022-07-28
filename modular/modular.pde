@@ -43,8 +43,7 @@ void drawUI(){
   
   //draw a right hand box with some info on the baby and mother and measurements
   drawInfoBox(); 
-
-  
+  fillInfoBox(); 
 }
 
 void printToCanvas (double z, Shape shape) {
@@ -65,6 +64,12 @@ void drawInfoBox () {
   stroke (0); 
   fill (200); 
   rect (600, 20, 180, 260); 
+}
+
+void fillInfoBox() {
+  //to fill box with the information
+  //name, age, weight of mother on top half 
+  //age, gender (if known), and measurements of the baby 
 }
 
 
