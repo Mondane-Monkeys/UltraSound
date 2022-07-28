@@ -11,7 +11,7 @@ public class Family{
   
   Family(){
     age = generateAge();
-    size = 15;
+    size = generateSize();
     medicalHistory = null;
   }
   
@@ -20,7 +20,7 @@ public class Family{
   }
   
   public int generateSize() {
-    return 0; 
+    return sizes[age-8];
   }
   
 }
