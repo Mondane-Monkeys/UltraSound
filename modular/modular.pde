@@ -41,7 +41,7 @@ void drawUI(){
       }
     }
   
-  //draw a right hand box with some info on the baby and mother and measurements 
+  //draw a right hand box with some info on the baby and mother and measurements
 
   
 }
@@ -58,6 +58,10 @@ void printToCanvas (double z, Shape shape) {
       circle (20+i*5, 20+j*5, 5);
     }
   }
+}
+
+void drawInfoBox () {
+  rect (600, 20, 180, 260); 
 }
 
 
