@@ -40,8 +40,8 @@ public static int[][] renderEllipse(double width, double height, double depth, i
   //dimensions are radii
   //go from -depth -> depth: as frams go 0->maxFrame
   double z = ((1.0*frame/maxFrame)-0.5)*2*depth;//calculates which depth from the frame
-  double x;
-  double y;
+  double x = 0;
+  double y = 0;
   
   int[][] scan = new int[RESOLUTION][RESOLUTION];
   for(int i=0; i < RESOLUTION; i++){
@@ -49,6 +49,7 @@ public static int[][] renderEllipse(double width, double height, double depth, i
       Point pt = new Point(x, y, z);
     }
   }
+  return scan;
 }
 
 }
