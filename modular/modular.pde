@@ -71,7 +71,15 @@ void fillInfoBox() {
   //name, age, weight of mother on top half 
   //age, gender (if known), and measurements of the baby 
   textSize (20); 
-  
+  textAlign (CENTER);
+  text ("Name: "); 
+  text ("Age: "); 
+  text ("Weight: "); 
+  text (" ");
+  text (" ");
+  text ("Gestation: ");
+  text ("Sex: "); 
+  text ("Length: " + ", Appx. Weight: ");
 }
 
 
