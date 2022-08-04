@@ -87,7 +87,7 @@ void fillInfoBox() {
 
 ////Draw scan
 void grid(){
-  int scan[][] = Engine.render();
+  int scan[][] = Engine.render1();
   
   for (int i = 0; i<scan.length; i++) {
     for (int j = 0; j<scan[i].length; j++) {
