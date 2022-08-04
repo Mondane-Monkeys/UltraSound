@@ -54,7 +54,7 @@ class Body extends Ellipse{
     
     @Override
     public boolean isIn(Point input){
-        return (super.isIn(input) || leftShoulder.isIn(input) || leftShoulder.isIn(input));
+        return (super.isIn(input) || leftShoulder.isIn(input) || rightShoulder.isIn(input));
     }
 }
 

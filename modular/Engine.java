@@ -16,16 +16,18 @@ public class Engine {
   //renders middle slice of child, no angles yet
   public static int[][] render1() {//returns a 2d array of a scan at the given saggital/coronal coordinates;
     int RESOLUTION = 100;
-    double MAX_WIDTH = 50;
-    double MAX_HEIGHT = 50;
+    double MAX_WIDTH = 15;
+    double MAX_HEIGHT = 15;
     // double MAX_DEPTH = 1;
-    Family testFam = new Family(10, 2.5);
+    Family testFam = new Family(10, 10);
     Body body = new Body(testFam);
     int[][] scan = new int[RESOLUTION][RESOLUTION];
     for (int i = 0; i < RESOLUTION; i++) {
       for (int j = 0; j < RESOLUTION; j++) {
-        Point pt = new Point((1.0 * i / RESOLUTION * 2 * MAX_WIDTH) - MAX_WIDTH,
-            (1.0 * i / RESOLUTION * 2 * MAX_HEIGHT) - MAX_HEIGHT, 0);
+        double x = (1.0 * i / RESOLUTION * 2 * MAX_WIDTH) - MAX_WIDTH; //should go from -width -> width
+        double y = (1.0 * j / RESOLUTION * 2 * MAX_HEIGHT) - MAX_HEIGHT;
+        double z = 0;
+        Point pt = new Point(x, y, z);
         scan[i][j] = body.isIn(pt) ? 0 : 255;
       }
     }
@@ -49,7 +51,7 @@ public class Engine {
     int[][] scan = new int[RESOLUTION][RESOLUTION];
     for (int i = 0; i < RESOLUTION; i++) {
       for (int j = 0; j < RESOLUTION; j++) {
-        x = (1.0 * i / RESOLUTION) * 2 * width - width;//should go from -width -> width
+        x = (1.0 * i / RESOLUTION) * 2 * width - width;
         y = (1.0 * j / RESOLUTION) * 2 * height - height;//should go from -height -> height
         pt = new Point(x, y, z);
         scan[i][j] = ellipse.isIn(pt) ? 255 : 0;
