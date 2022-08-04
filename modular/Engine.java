@@ -2,7 +2,7 @@ public class Engine{
 
   
   //default rendering of grey screen
-  public static int[][] render(Family family, double saggital, double coronal){//returns a 2d array of a scan at the given saggital/coronal coordinates;
+  public static int[][] render(){//returns a 2d array of a scan at the given saggital/coronal coordinates;
   int SIZE = 100;
     int[][] scan = new int[SIZE][SIZE];
     for(int i=0; i < SIZE; i++){
@@ -15,7 +15,7 @@ public class Engine{
   }
 
 //renders middle slice of child, no angles yet
-public static int[][] render1(Family family, double saggital, double coronal){//returns a 2d array of a scan at the given saggital/coronal coordinates;
+public static int[][] render1(){//returns a 2d array of a scan at the given saggital/coronal coordinates;
   int RESOLUTION = 100;
   double MAX_WIDTH = 5;
   double MAX_HEIGHT = 5;
@@ -52,7 +52,7 @@ public static int[][] renderEllipse(double width, double height, double depth, i
       x = (i/RESOLUTION)*2*width - width;//should go from -width -> width
       y = (j/RESOLUTION)*2*height - height;//should go from -height -> height
       pt = new Point(x, y, z);
-      // ellipse.isIn();
+      // ellipse.isIn(pt);
       
     }
   }
