@@ -72,14 +72,14 @@ void fillInfoBox() {
   //age, gender (if known), and measurements of the baby 
   textSize (20); 
   textAlign (CENTER);
-  text ("Name: ", 90, 40); 
-  text ("Age: ", 90, 80); 
-  text ("Weight: ", 90, 120); 
+  text ("Patient Name: ", 90, 40); 
+  text ("Patient Age: ", 90, 80); 
+  text ("Patient Weight: ", 90, 120); 
   text (" ", 90, 130);
   text (" ", 90, 150);
-  text ("Gestation: ", 90, 180);
-  text ("Sex: ", 90, 220); 
-  text ("Length: " + ", Appx. Weight: ", 90, 250);
+  text ("Fetus Gestation: ", 90, 180);
+  text ("Fetus Sex: ", 90, 220); 
+  text ("Fetus Length: " + ", Fetus Appx. Weight: ", 90, 250);
 }
 
 
