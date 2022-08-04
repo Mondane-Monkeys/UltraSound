@@ -33,20 +33,20 @@ void drawUI(){
   //draw the scanning table and object maybe? 
   
   //call the engine to draw the fetus, based on the calculations in family 
-  color[][] scan = Engine.render (newExam, 0.0, 0.0);
+  /* color[][] scan = Engine.render (newExam, 0.0, 0.0);
     for (int i = 0; i < sizes.length; i++) {
       for (int j = 0; j < sizes.length; j++) {
         fill(scan[i][j]);
         circle(i, j, 3);
       }
-    }
+    } */
   
   //draw a right hand box with some info on the baby and mother and measurements
   drawInfoBox(); 
   fillInfoBox(); 
 }
 
-void printToCanvas (double z, Shape shape) {
+/* void printToCanvas (double z, Shape shape) {
   boolean [][] values = testEllipse (z, shape);
   for (int i = 0; i < values.length; i++) {
     for (int j = 0; j < values[i].length; j++) {
@@ -58,7 +58,7 @@ void printToCanvas (double z, Shape shape) {
       circle (20+i*5, 20+j*5, 5);
     }
   }
-}
+} */
 
 void drawInfoBox () {
   stroke (0); 
@@ -72,14 +72,14 @@ void fillInfoBox() {
   //age, gender (if known), and measurements of the baby 
   textSize (20); 
   textAlign (CENTER);
-  text ("Name: "); 
-  text ("Age: "); 
-  text ("Weight: "); 
-  text (" ");
-  text (" ");
-  text ("Gestation: ");
-  text ("Sex: "); 
-  text ("Length: " + ", Appx. Weight: ");
+  text ("Name: ", 90, 40); 
+  text ("Age: ", 90, 80); 
+  text ("Weight: ", 90, 120); 
+  text (" ", 90, 130);
+  text (" ", 90, 150);
+  text ("Gestation: ", 90, 180);
+  text ("Sex: ", 90, 220); 
+  text ("Length: " + ", Appx. Weight: ", 90, 250);
 }
 
 
