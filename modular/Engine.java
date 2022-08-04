@@ -2,59 +2,53 @@ public class Engine{
 
   
   //default rendering of grey screen
-  public static color[][] render(Family family, double saggital, double coronal){//returns a 2d array of a scan at the given saggital/coronal coordinates;
+  public static int[][] render(Family family, double saggital, double coronal){//returns a 2d array of a scan at the given saggital/coronal coordinates;
   int SIZE = 100;
-    color[][] scan = new color[SIZE][SIZE];
+    int[][] scan = new int[SIZE][SIZE];
     for(int i=0; i < SIZE; i++){
        for(int j=0; j < SIZE; j++){
-          scan[i][j] = new color(((5*i+j)*i)%255);
+          scan[i][j] = ((5*i+j)*i)%255;
        }
     }
     
     return scan;
   }
 
-
-
 //renders middle slice of child, no angles yet
-public static color[][] render1(Family family, double saggital, double coronal){//returns a 2d array of a scan at the given saggital/coronal coordinates;
+public static int[][] render1(Family family, double saggital, double coronal){//returns a 2d array of a scan at the given saggital/coronal coordinates;
   int RESOLUTION = 100;
   double MAX_WIDTH = 5;
   double MAX_HEIGHT = 5;
   // double MAX_DEPTH = 1;
-  Family testFam = new Family();
-  Body body = new Body(family);
-    color[][] scan = new color[RESOLUTION][RESOLUTION];
+  Family testFam = new Family(10, 2.5);
+  Body body = new Body(testFam);
+    int[][] scan = new int[RESOLUTION][RESOLUTION];
     for(int i=0; i < RESOLUTION; i++){
        for(int j=0; j < RESOLUTION; j++){
           Point pt = new Point((1.0*i/RESOLUTION*2*MAX_WIDTH)-MAX_WIDTH, (1.0*i/RESOLUTION*2*MAX_HEIGHT)-MAX_HEIGHT, 0);
-          scan[i][j] = body.isIn(pt) ? new color(0) : new color(255);
+          scan[i][j] = body.isIn(pt) ? 0 : 255;
        }
     }
     
     return scan;
   }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //general shapes -> 
 
-
-class color{
-  public color(int in) {
-    super();
+public static int[][] renderEllipse(double width, double height, double depth, int frame, int maxFrame){
+  int RESOLUTION = 100;
+  
+  //dimensions are radii
+  //go from -depth -> depth: as frams go 0->maxFrame
+  double z = ((1.0*frame/maxFrame)-0.5)*2*depth;//calculates which depth from the frame
+  double x;
+  double y;
+  
+  int[][] scan = new int[RESOLUTION][RESOLUTION];
+  for(int i=0; i < RESOLUTION; i++){
+    for(int j=0; j < RESOLUTION; j++){
+      Point pt = new Point(x, y, z);
+    }
   }
+}
+
 }

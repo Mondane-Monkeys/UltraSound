@@ -25,13 +25,13 @@ public class Family{
   
   
   public int generateAge() {
-    int ageToInt = int (Math.random()*(44-8)+8);
+    int ageToInt = (int) (Math.random()*(44-8)+8);
     return ageToInt;
     
   }
   
   public int generateSize() {
-    return sizes[age-8];
+    return (int)sizes[age-8];
   }
   
 }
