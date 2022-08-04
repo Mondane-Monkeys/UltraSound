@@ -16,6 +16,7 @@
 ////////////////////////////
 void setup(){
   Family newExam = new Family ();
+  size (800, 400);
 }
 
 void draw(){
@@ -71,6 +72,7 @@ void fillInfoBox() {
   //name, age, weight of mother on top half 
   //age, gender (if known), and measurements of the baby 
   textSize (20); 
+  fill (0);
   textAlign (CENTER);
   text ("Patient Name: ", 90, 40); 
   text ("Patient Age: ", 90, 80); 
