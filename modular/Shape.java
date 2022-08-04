@@ -94,7 +94,6 @@ class Bicep extends Ellipse{
     public boolean isIn(Point input){
         return (super.isIn(input) || elbow.isIn(input));
     }
-    
 }
 
 class Elbow extends Ellipse{
