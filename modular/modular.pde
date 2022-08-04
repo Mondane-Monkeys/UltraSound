@@ -63,7 +63,7 @@ void drawUI(){
 
 void drawInfoBox () {
   stroke (0); 
-  fill (200); 
+  fill (220); 
   rect (600, 20, 190, 270); 
 }
 
