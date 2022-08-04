@@ -64,24 +64,23 @@ void drawUI(){
 void drawInfoBox () {
   stroke (0); 
   fill (200); 
-  rect (600, 20, 180, 260); 
+  rect (600, 20, 190, 270); 
 }
 
 void fillInfoBox() {
   //to fill box with the information
   //name, age, weight of mother on top half 
   //age, gender (if known), and measurements of the baby 
-  textSize (20); 
+  textSize (14); 
   fill (0);
   textAlign (CENTER);
-  text ("Patient Name: ", 90, 40); 
-  text ("Patient Age: ", 90, 80); 
-  text ("Patient Weight: ", 90, 120); 
-  text (" ", 90, 130);
-  text (" ", 90, 150);
-  text ("Fetus Gestation: ", 90, 180);
-  text ("Fetus Sex: ", 90, 220); 
-  text ("Fetus Length: " + ", Fetus Appx. Weight: ", 90, 250);
+  text ("Patient Name: ", 690, 40); 
+  text ("Patient Age: ", 690, 80); 
+  text ("Patient Weight: ", 690, 120); 
+  text ("Fetus Gestation: ", 690, 160);
+  text ("Fetus Sex: ", 690, 200); 
+  text ("Fetus Length: ", 690, 240);
+  text ("Fetus Appx. Weight: ", 690, 280);
 }
 
 
