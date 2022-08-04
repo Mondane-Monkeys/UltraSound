@@ -15,6 +15,13 @@ public class Family{
     medicalHistory = null;
   }
   
+  Family(int inAge, double inSize){
+    age = inAge;
+    size = inSize;
+    medicalHistory = null;
+  }
+  
+  
   public int generateAge() {
     return int (random (8, 44));
   }
