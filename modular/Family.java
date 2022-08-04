@@ -1,3 +1,5 @@
+ import java.util.*;
+
 //Holds all information relating to the patient.
 
 public class Family{
@@ -23,7 +25,9 @@ public class Family{
   
   
   public int generateAge() {
-    return int (random (8, 44));
+    int ageToInt = int (Math.random()*(44-8)+8);
+    return ageToInt;
+    
   }
   
   public int generateSize() {
