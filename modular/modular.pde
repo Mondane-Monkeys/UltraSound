@@ -83,6 +83,20 @@ void fillInfoBox() {
   text ("Fetus Appx. Weight: ", 690, 280);
 }
 
+////Draw scan
+void grid(){
+  int scan[][] = Engine.render();
+  
+  for (int i = 0; i<scan.length; i++) {
+    for (int j = 0; j<scan[i].length; j++) {
+      double x = i*2+20;
+      double y = j*2+20;
+      noStroke();
+      fill(scan[i][j]);
+      circle((int)x, (int)y, 2);
+    }
+  }
+}
 
 ////////////////////////////
 ///game control functions///

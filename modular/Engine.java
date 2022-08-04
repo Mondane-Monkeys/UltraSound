@@ -36,7 +36,10 @@ public static int[][] render1(Family family, double saggital, double coronal){//
 
 public static int[][] renderEllipse(double width, double height, double depth, int frame, int maxFrame){
   int RESOLUTION = 100;
-  
+  double MARGIN = 0.9;
+  Point pt = new Point(0, 0, 0);
+  Dimension dim = new Dimension(pt, width*MARGIN, height*MARGIN, depth*MARGIN, 0, 0);
+  Ellipse ellispe = new Ellipse(dim);
   //dimensions are radii
   //go from -depth -> depth: as frams go 0->maxFrame
   double z = ((1.0*frame/maxFrame)-0.5)*2*depth;//calculates which depth from the frame
@@ -46,7 +49,11 @@ public static int[][] renderEllipse(double width, double height, double depth, i
   int[][] scan = new int[RESOLUTION][RESOLUTION];
   for(int i=0; i < RESOLUTION; i++){
     for(int j=0; j < RESOLUTION; j++){
-      Point pt = new Point(x, y, z);
+      x = (i/RESOLUTION)*2*width - width;//should go from -width -> width
+      y = (j/RESOLUTION)*2*height - height;//should go from -height -> height
+      pt = new Point(x, y, z);
+      // ellipse.isIn();
+      
     }
   }
   return scan;
