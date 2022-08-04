@@ -73,7 +73,7 @@ void fillInfoBox() {
   //to fill box with the information
   //name, age, weight of mother on top half 
   //age, gender (if known), and measurements of the baby 
-  textSize (14); 
+  textSize (12); 
   fill (0);
   textAlign (CENTER);
   text ("Patient Name: ", 690, 40); 
