@@ -16,7 +16,7 @@ class Dimension {
       return point.getX();
     }
     public double getY() {
-      return point.getZ();
+      return point.getY();
     }
     public double getZ() {
       return point.getZ();

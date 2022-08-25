@@ -39,28 +39,30 @@ class Ellipse extends Shape {
 
 ////////////////////////
 //////////BODY//////////
-///////////////////////
+////////////////////////
 class Body extends Ellipse{
     Shoulder leftShoulder;
     Shoulder rightShoulder;
     public Body(Family family) {
         //default 20 weeks
-        super(new Dimension(new Point(0, 0, 0), family.size, family.size/2, family.size/2, 0, 0));
-        Dimension leftShoulderDim = new Dimension(new Point(0, family.size/2, 0), family.size/10, family.size/10, family.size/10, 0, 0);
-        Dimension rightShoulderDim = new Dimension(new Point(0, -family.size/2, 0), family.size/10, family.size/10, family.size/10, 0, 0);
+        super(new Dimension(new Point(0, 0, 0), family.size, family.size/2.0, family.size/2.0, 0, 0));
+        //Sets shoulder positioin?
+        Dimension leftShoulderDim = new Dimension(new Point(family.size/2.0, -family.size/2.0, 0), family.size/10.0, family.size/10.0, family.size/10.0, 0, 0);
+        Dimension rightShoulderDim = new Dimension(new Point(-family.size/2.0, -family.size/2.0, 0), family.size/10.0, family.size/10.0, family.size/10.0, 0, 0);
         leftShoulder = new Shoulder(family, leftShoulderDim, this);
         rightShoulder = new Shoulder(family, rightShoulderDim, this);
     }
     
     @Override
     public boolean isIn(Point input){
+        // return leftShoulder.isIn(input);
         return (super.isIn(input) || leftShoulder.isIn(input) || rightShoulder.isIn(input));
     }
 }
 
 ////////////////////////
 //////////ARMS//////////
-///////////////////////
+////////////////////////
 class Shoulder extends Ellipse{
     Shape parent;
     Bicep bicep;
